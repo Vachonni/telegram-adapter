@@ -1,0 +1,25 @@
+[build-system]
+requires = ["hatchling >= 1.26"]
+build-backend = "hatchling.build"
+
+[project]
+name = "telegram-adapter"
+version = "0.1.0"
+description = "Interface between request from Telegram and the AI Agent"
+authors = [{ name = "nicholas" , email = "nicholasvachon@hotmail.com"}]
+requires-python = ">=3.13"
+dependencies = [
+    "pydantic>=2.11.7",
+    "pydantic-settings>=2.10.1",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.1",
+    "python-telegram-bot>=22.3",
+]
+
+
+[tool.hatch.build.targets.wheel]
+    packages = ["src/telegram_adapter"]
+
