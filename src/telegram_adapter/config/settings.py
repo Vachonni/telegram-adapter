@@ -20,8 +20,10 @@ class Settings(BaseSettings):
     """Settings for the database service."""
 
     # Fixed fields
-    FIXED_VAR: str = "fixed_var"
+    FIXED_VAR: str = "fixed_value"
     # Fields loaded from environment variables
+    TELEGRAM_BOT_TOKEN: str
+    TELEGRAM_CHAT_ID: str
     app_env: AppEnvEnum = Field(
         default=AppEnvEnum.DEV
     )  # Field necesary for pytest in Docker

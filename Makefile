@@ -8,16 +8,20 @@
 # GitHub Container Registry path (without image name or tag)
 GITHUB_REGISTRY=Telegram Adapter
 
-.PHONY: help pytest docker-build-dev docker-run-dev docker-up-dev docker-run-staging docker-run-prod 
+.PHONY: help pytest run-app docker-build-dev docker-run-dev docker-up-dev docker-run-staging docker-run-prod 
 
 help:
 	@echo "Available targets:"
+	@echo "  run-app           Run the Telegram adapter application."
 	@echo "  pytest            Run tests using pytest."
 	@echo "  docker-build-dev  Build the dev Docker image only (does not run)."
 	@echo "  docker-run-dev    Run the dev Docker container (does not rebuild)."
 	@echo "  docker-up-dev     Build and run the dev Docker container."
 	@echo "  docker-run-staging  Pull and run the staging Docker image with .env.staging."
 	@echo "  docker-run-prod     Pull and run the prod Docker image with .env.prod."
+
+run-app:
+	uv run python -m src.app
 
 pytest:
 	uv run pytest
