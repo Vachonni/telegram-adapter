@@ -21,7 +21,7 @@ help:
 	@echo "  docker-run-prod     Pull and run the prod Docker image with .env.prod."
 
 run-app:
-	uv run python -m src.app
+	uv run python -m src.telegram_adapter.app
 
 pytest:
 	uv run pytest
