@@ -15,8 +15,8 @@ from telegram_adapter.config.settings import AppEnvEnum
 
 def set_required_env(monkeypatch):
     monkeypatch.setenv("TELEGRAM_BOT_TOKEN", "dummy")
-    monkeypatch.setenv("TELEGRAM_NV_ID", "111")
-    monkeypatch.setenv("TELEGRAM_GF_ID", "222")
+    monkeypatch.setenv("TELEGRAM_USER1_ID", "111")
+    monkeypatch.setenv("TELEGRAM_USER2_ID", "222")
 
 
 def test_env_defaults_to_dev(monkeypatch: MonkeyPatch) -> None:
@@ -37,8 +37,8 @@ def test_env_variables_are_loaded(monkeypatch: MonkeyPatch) -> None:
     assert settings.app_env == AppEnvEnum.DEV
     assert settings.log_level == "DEBUG"
     assert settings.TELEGRAM_BOT_TOKEN == "dummy"
-    assert settings.TELEGRAM_NV_ID == 111
-    assert settings.TELEGRAM_GF_ID == 222
+    assert settings.TELEGRAM_USER1_ID == 111
+    assert settings.TELEGRAM_USER2_ID == 222
     assert settings.allowed_ids == [111, 222]
 
 
