@@ -23,10 +23,11 @@ class Settings(BaseSettings):
     FIXED_VAR: str = "fixed_value"
     # Fields loaded from environment variables
     TELEGRAM_BOT_TOKEN: str
-    TELEGRAM_CHAT_ID: str
+    TELEGRAM_NV_ID: int
+    TELEGRAM_GF_ID: int
     app_env: AppEnvEnum = Field(
         default=AppEnvEnum.DEV
-    )  # Field necesary for pytest in Docker
+    )  # Field is necessary for pytest in Docker
 
     model_config = {
         "env_file": env_file,
@@ -40,6 +41,11 @@ class Settings(BaseSettings):
             return "INFO"
         else:
             return "DEBUG"
+
+    @property
+    def allowed_ids(self) -> list[int]:
+        """Return a list of allowed IDs."""
+        return [self.TELEGRAM_NV_ID, self.TELEGRAM_GF_ID]
 
 
 settings = Settings()  # type: ignore
