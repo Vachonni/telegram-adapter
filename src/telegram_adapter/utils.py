@@ -2,7 +2,7 @@ import logging
 
 from langchain_community.llms import Ollama
 
-from telegram_adapter.config.logging import setup_logging
+from telegram_adapter.config.logs import setup_logging
 
 setup_logging()
 logger = logging.getLogger(__name__)

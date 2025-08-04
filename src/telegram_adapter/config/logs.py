@@ -5,7 +5,6 @@ import logging.config
 
 from telegram_adapter.config.settings import settings
 
-
 PROJECT_NAME = "Telegram Adapter"
 
 
