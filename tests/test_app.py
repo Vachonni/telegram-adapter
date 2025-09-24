@@ -13,6 +13,7 @@ class DummySettings:
 
 
 @pytest.mark.asyncio
+@patch("telegram_adapter.utils.settings", new=DummySettings)
 @patch("telegram_adapter.app.settings", new=DummySettings)
 @patch(
     "telegram_adapter.app.get_ollama", return_value=lambda msg: "mocked Ollama response"
@@ -34,6 +35,7 @@ async def test_handle_message_authorized(mock_reply_text, mock_ollama):
 
 
 @pytest.mark.asyncio
+@patch("telegram_adapter.utils.settings", new=DummySettings)
 @patch("telegram_adapter.app.settings", new=DummySettings)
 @patch.object(Message, "reply_text", new_callable=AsyncMock)
 async def test_handle_message_unauthorized(mock_reply_text):
